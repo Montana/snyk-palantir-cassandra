@@ -1,9 +1,9 @@
-os: freebsd
 language: python
 python:
   - "3.5"
-  - "3.6"
-  - "3.8"
-script: python bfs.py 
-  - python3 bfs.py
-after_install: echo "Montana Mendy"
+  
+script: 
+  - "sudo apt-get install nodejs"
+  - "npm install -g snyk"
+  - "snyk auth $SNYK_TOKEN"
+  - "snyk test"
