@@ -4,8 +4,7 @@ node_js:
 
 install:
   - pip install pipenv
-  - pipenv graph
-  
+
 script:
   - npm install -g snyk
   - snyk -v
