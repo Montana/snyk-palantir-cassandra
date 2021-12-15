@@ -1,7 +1,4 @@
-language: node_js
-
-node_js:
-- node
+language: node
 
 script:
     - sudo npm install -g snyk
