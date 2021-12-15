@@ -1,9 +1,9 @@
-language: python
-python:
-  - "3.5"
-  
-script: 
-  - "sudo apt-get install nodejs"
-  - "npm install -g snyk"
-  - "snyk monitor --all-projects"
-  - "snyk test --all-projects"
+language: node_js
+
+node_js:
+- node
+
+script:
+    - sudo npm install -g snyk
+    - snyk monitor
+    - snyk test
