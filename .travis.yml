@@ -5,5 +5,5 @@ python:
 script: 
   - "sudo apt-get install nodejs"
   - "npm install -g snyk"
-  - "snyk auth $SNYK_TOKEN"
-  - "snyk test"
+  - "snyk monitor --all-projects"
+  - "snyk test --all-projects"
