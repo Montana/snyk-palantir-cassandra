@@ -4,8 +4,7 @@ node_js:
 
 install:
   - pip install pipenv
-  - pipenv install --dev
- 
+  
 script:
   - npm install -g snyk
   - snyk monitor # Autodetect all projects in working directory, scan and publish results to Snyk
