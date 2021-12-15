@@ -7,6 +7,4 @@ install:
   
 script:
   - npm install -g snyk
-  - snyk monitor # Autodetect all projects in working directory, scan and publish results to Snyk
-  - snyk test  # Autodetect all projects in working directory
   - snyk -v
