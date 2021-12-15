@@ -8,3 +8,4 @@ install:
 script:
   - npm install -g snyk
   - snyk -v
+  - snyk test --file="Pipfile"
