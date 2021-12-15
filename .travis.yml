@@ -1,7 +1,11 @@
 language: node_js
 node_js:
   - lts/*
-  
+
+install:
+  - pip install pipenv
+  - pipenv install --dev
+ 
 script:
   - npm install -g snyk
   - snyk monitor # Autodetect all projects in working directory, scan and publish results to Snyk
