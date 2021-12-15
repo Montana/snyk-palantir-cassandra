@@ -1,6 +1,10 @@
-language: node
+language: node_js
+node_js:
+  - 7
 
-script:
-    - sudo npm install -g snyk
-    - snyk monitor
-    - snyk test
+before_install:
+  - npm install -g snyk
+
+script: 
+  - snyk monitor
+  - snyk test
