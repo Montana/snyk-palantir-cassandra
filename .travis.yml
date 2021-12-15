@@ -1,10 +1,8 @@
+install:
+  - pip install pipenv
 language: node_js
 node_js:
   - lts/*
-
-install:
-  - pip install pipenv
-
 script:
   - npm install -g snyk
   - snyk -v
