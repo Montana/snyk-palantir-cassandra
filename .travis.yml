@@ -8,5 +8,4 @@ script:
   - snyk -v
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
-  - snyk test lodash --dev 
-  - snyk test ionic@1.6.5 --dev
+  - snyk container test docker-archive:container.tar
