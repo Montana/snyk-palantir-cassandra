@@ -8,4 +8,4 @@ script:
   - snyk -v
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
-  - snyk container test docker-archive:container.tar
+  - snyk iac test variables.tf
