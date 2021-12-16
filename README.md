@@ -20,7 +20,7 @@ script:
   - npm install -g snyk@latest # Globally install Snyk via node package manager, using condition `@latest` for latest version.
   - snyk -v # Print out version 
   - snyk code
-  - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns # Scan the Palantir Cassandra container 
+  - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns # Scan the Palantir Cassandra container. 
   - snyk iac test variable.tf # Test an IaC method, say in this case Terraform. With simple variables that really equal to moot.
 ```
 
