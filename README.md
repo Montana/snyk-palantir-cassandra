@@ -3,7 +3,7 @@
 
 # Testing a BFS with Travis CI & Snyk
 
-Breadth-first search I made to have Travis CI/Snyk to test it. 
+Breadth-first search I made to have Snyk/Travis CI in conjunction, to test it. 
 
 
 ## Usage 
