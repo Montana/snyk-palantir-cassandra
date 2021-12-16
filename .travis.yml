@@ -1,7 +1,7 @@
 branches:
   only:
     - master
-    - /^(cherry-pick-)?backport-\\d+-to-/-/v\\d+\\.\\d+[a-z]/
+    - /^(cherry-pick-)?backport-\\d+-to-/-/v\\d+\\.\\d+[a-z]\+ 
 install:
   - pip install pipenv
 language: node_js
@@ -9,6 +9,7 @@ node_js:
   - lts/*
 script:
   - npm install -g snyk@latest
+  - npm install -g lodash@latest
   - snyk -v
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
