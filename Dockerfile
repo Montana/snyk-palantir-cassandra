@@ -38,5 +38,5 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
 EXPOSE 7000 7001 7199 9042 9160
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["cassandra", "-f"]`
