@@ -59,3 +59,7 @@ stages:
     name: >-
       Only trigger when a build has passed through Travis and Snyk and Montana has
       approved it
+ - if: >-
+      branch = master AND type != pull_request AND type != cron AND tag !~
+      /(-rc)/ AND commit_message =~ /\[.snyk\travisci/montanamendy*\.snyk (release
+      candidate|(major|minor|patch) release)\]/   
