@@ -14,8 +14,8 @@ language: node_js
 node_js:
   - lts/*
 script:
-  - npm install -g snyk
-  - snyk -v
+  - npm install -g snyk # Globally install Snyk on NPM 
+  - snyk -v # Print out version 
   - snyk code
 ```
 
