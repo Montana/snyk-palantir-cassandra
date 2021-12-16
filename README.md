@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/20936398/146291011-e2a74fa8-c94d-4ab1-87d0-4a64137d141b.png)
+
+
 # Testing a BFS with Travis CI & Snyk
 
 Breadth-first search I made to have Travis CI/Snyk to test it. 
