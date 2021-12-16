@@ -7,4 +7,4 @@ script:
   - npm install -g snyk@latest
   - snyk -v
   - snyk code
-  - snyk test --docker debian --file=Dockerfile
+  - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
