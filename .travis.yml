@@ -1,3 +1,7 @@
+branches:
+  only:
+    - master
+    - /^(cherry-pick-)?backport-\\d+-to-/-/v\\d+\\.\\d+[a-z]/
 install:
   - pip install pipenv
 language: node_js
@@ -10,3 +14,48 @@ script:
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
   - snyk iac test variable.tf
   - snyk iac test Kubernetes.yaml
+stages:
+  - name: Montana Mendy's Branching Process
+  - if: branch = master AND type = cron AND env(RUN_NIGHTLY) = yes
+    name: Snyk sanity checks on Debian
+  - if: branch = master AND type = cron AND env(RUN_NIGHTLY) = no
+    name: Snyk nightly sanity checks on Terraform/Debian
+  - if: branch = master AND type = cron AND env(RUN_NIGHTLY) = no
+    name: Trigger nightly checks for Terraform updates
+  - if: >-
+      ((branch IN (master, develop) && type = push) OR branch =~ /.*env.*/ OR
+      commit_message =~ /\[recreate env\]/) AND commit_message !~ /\[delete
+      env\]/ AND type != cron AND commit_message !~ /\[execute .*. test\]/ AND
+      commit_message !~ /\[start recreate scheduler\]/
+    name: Recreate the scheduler
+  - if: >-
+      (type = cron AND branch = develop) OR commit_message =~ /\[start recreate
+      scheduler\]/ OR commit_message =~ /\[destroy stale clusters\]/
+    name: Terraform destroy stale clusters
+  - if: >-
+      ((branch IN (master, develop) && type = push) OR branch =~ /.*env.*/ OR
+      commit_message =~ /\[recreate env\]/) AND commit_message !~ /\[delete
+      env\]/ AND type != cron AND commit_message !~ /\[execute .*. test\]/ AND
+      commit_message !~ /\[start recreate scheduler\]/
+    name: >-
+      Restart the Montana Mendy branch and execute Terraform tests again if the
+      commit depth goes beyond 5, then have Snyk run scans
+  - if: >-
+      (type = cron AND branch = develop) OR commit_message =~ /\[start recreate
+      scheduler\]/ OR commit_message =~ /\[destroy orphaned clusters\]/
+    name: >-
+      Destroy orphaned clusters within Docker to save payload on Terraform and
+      money on Montana's GCP account, have Snyk scan the scheduler
+  - if: >-
+      (type = cron AND branch = develop) OR commit_message =~ /\[start recreate
+      scheduler\]/ OR commit_message =~ /\[recreate selected clusters\]/
+    name: >-
+      Recreate a Terraform instance if there's a cron present or a branch push
+      enforcing with --force
+  - if: >-
+      branch = master AND type != pull_request AND type != cron AND tag !~
+      /(-rc)/ AND commit_message =~ /\[terraform\travisci/montanamendy* (release
+      candidate|(major|minor|patch) release)\]/   
+    name: >-
+      Only trigger when a build has passed through Travis and Snyk and Montana has
+      approved it
