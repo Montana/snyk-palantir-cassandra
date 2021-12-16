@@ -22,4 +22,4 @@ script:
   - snyk code
 ```
 
-It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works.
+It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works. I've also added cursory checks for Palantir's Apache Cassandra Dockerfile, to see if Snyk crashes when doing things in succession.
