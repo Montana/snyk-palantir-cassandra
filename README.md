@@ -25,7 +25,7 @@ script:
   - snyk iac test variable.tf # Test an IaC method, say in this case Terraform. With simple variables that really equal to moot.
   - snyk iac test Kubernetes.yaml  # Test the Kubernetes.yaml file to see if there's any vuln's, this is defined to run on nginx.
   
-# The rest of the .travis.yml in this repo, is my branching process. So if you look at the existing .travis.yml in this repo, and wonder why it's different, that's the reson. The above snippet will get you going. 
-  ```
+# The rest of the .travis.yml in this repo, is my branching process. So if you look at the existing .travis.yml in this repo, and wonder why it's different, that's the raeson. The above snippet will get you going. 
+```
 
 It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works. I've also added cursory checks for Palantir's Apache Cassandra Dockerfile, to see if Snyk crashes when doing things in succession.
