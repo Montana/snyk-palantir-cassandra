@@ -8,3 +8,4 @@ script:
   - snyk -v
   - snyk code
   - snyk container test debian
+  - snyk config set disableSuggestions=true 
