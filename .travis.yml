@@ -8,4 +8,4 @@ script:
   - snyk -v
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
-  - snyk protect "--debug"
+  - snyk test lodash --exclude-base-image-vulns
