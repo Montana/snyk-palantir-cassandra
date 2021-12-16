@@ -3,7 +3,7 @@
 
 ## Testing Palantir's remix of Apache Cassandra with Snyk & Travis CI
 
-Breadth-first search I made to have Snyk/Travis CI in conjunction, to test it. 
+This repository is to show Travis CI testing a Dockerfile based on Palantir's remix of Apache Cassandra, testing IaC's (Terraform, Kubernetes), and testing the integration health of Debian.
 
 ## Usage 
 
@@ -21,7 +21,7 @@ script:
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns # Scan the Palantir Cassandra container. 
   - snyk iac test variable.tf # Test an IaC method, say in this case Terraform. With simple variables that really equal to moot.
-  - snyk iac test Kubernetes.yaml 
+  - snyk iac test Kubernetes.yaml  # Test the Kubernetes.yaml file to see if there's any vuln's, this is defined to run on nginx.
 ```
 
 It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works. I've also added cursory checks for Palantir's Apache Cassandra Dockerfile, to see if Snyk crashes when doing things in succession.
