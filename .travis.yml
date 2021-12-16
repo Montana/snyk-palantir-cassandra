@@ -9,3 +9,5 @@ script:
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
   - snyk iac test variable.tf
+  - snyk iac test Kubernetes.yaml 
+
