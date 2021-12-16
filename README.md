@@ -9,7 +9,7 @@ This repository is to show Travis CI testing a Dockerfile based on Palantir's re
 
 ## Usage 
 
-So we hade to define in the `.travis.yml` file the language as `node`, ultimately at first I had it set as `python`, but thought of a crafty work around, in which we would be using `pipenv` and if need be, `pipenv graph` via we have to grab `Snyk` and to do that we need to use `npm`. We then grab `pipenv`, here is minified version of the `.travis.yml` I've created for this project: 
+So we hade to define in the `.travis.yml` file the language as `node`, ultimately at first I had it set as `python`, but thought of a crafty work around, in which we would be using `pipenv` and if need be, `pipenv graph` via we have to grab `Snyk` and to do that we need to use `npm`. We then grab `pipenv`, here is a minified version of the `.travis.yml` I've created for this project, that doesn't have my `regex` expressions, and branching conditionals:
 
 ```yaml
 install:
