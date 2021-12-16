@@ -7,5 +7,4 @@ script:
   - npm install -g snyk@latest
   - snyk -v
   - snyk code
-  - snyk container test debian
-  - snyk config set disableSuggestions=true 
+  - snyk test --docker debian --Dockerfile
