@@ -1,5 +1,7 @@
 ![image](https://user-images.githubusercontent.com/20936398/146291011-e2a74fa8-c94d-4ab1-87d0-4a64137d141b.png)
 
+[![Build Status](https://app.travis-ci.com/Montana/snyk-palantir-cassandra.svg?branch=master)](https://app.travis-ci.com/Montana/snyk-palantir-cassandra)
+
 
 ## Testing Palantir's remix of Apache Cassandra with Snyk & Travis CI
 
