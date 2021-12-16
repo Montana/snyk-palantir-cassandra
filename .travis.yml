@@ -15,8 +15,7 @@ script:
   - snyk iac test variable.tf
   - snyk iac test Kubernetes.yaml
   - snyk policy
-  
-stages:
+  stages:
   - name: Montana Mendy's Branching Process
   - if: branch = master AND type = cron AND env(RUN_NIGHTLY) = yes
     name: Snyk sanity checks on Debian
