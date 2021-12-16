@@ -19,4 +19,4 @@ script:
   - snyk code
 ```
 
-It's important to note you'll need your Snyk `env vars`. 
+It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works.
