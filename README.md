@@ -9,7 +9,7 @@ This repository is to show Travis CI testing a Dockerfile based on Palantir's re
 
 ## Usage 
 
-So we hade to define in the `.travis.yml` file the language as `node`, via we have to grab `Snyk` and to do that we need to use `npm`. We then grab `pipenv`, there is the `.travis.yml` I've created for this project: 
+So we hade to define in the `.travis.yml` file the language as `node`, ultimately at first I had it set as `python`, but figured a crafty work around would be using `pipenv` and if need be, `pipenv graph` via we have to grab `Snyk` and to do that we need to use `npm`. We then grab `pipenv`, there is the `.travis.yml` I've created for this project: 
 
 ```yaml
 install:
@@ -25,7 +25,6 @@ script:
   - snyk iac test variable.tf # Test an IaC method, say in this case Terraform. With simple variables that really equal to moot.
   - snyk iac test Kubernetes.yaml  # Test the Kubernetes.yaml file to see if there's any vuln's, this is defined to run on nginx.
   
-# The rest of the .travis.yml in this repo, is my branching process. So if you look at the existing .travis.yml in this repo, and wonder why it's different, that's the raeson. The above snippet will get you going. 
+# The rest of the .travis.yml in this repo, is my branching process. So if you look at the existing .travis.yml in this repo, and wonder why it's different, that's the reason. The above snippet will get you going. 
 ```
-
 It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works. I've also added cursory checks for Palantir's Apache Cassandra Dockerfile, to see if Snyk crashes when doing things in succession.
