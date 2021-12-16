@@ -20,7 +20,8 @@ script:
   - npm install -g snyk@latest # Globally install Snyk via node package manager, using condition `@latest` for latest version.
   - snyk -v # Print out version 
   - snyk code
-  - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns # Scan the Palantir Cassandra container
+  - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns # Scan the Palantir Cassandra container 
+  - snyk iac test variable.tf # Test an IaC method, say in this case Terraform. With simple variables that really equal to moot.
 ```
 
 It's important to note you'll need your Snyk `env vars`. I started this out `language: python`, then switched it to `node` to fetch `Snyk`, it's a quirky workaround, but works. I've also added cursory checks for Palantir's Apache Cassandra Dockerfile, to see if Snyk crashes when doing things in succession.
