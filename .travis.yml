@@ -7,3 +7,4 @@ script:
   - npm install -g snyk@latest
   - snyk -v
   - snyk code
+  - snyk container test : --file=Dockerfile
