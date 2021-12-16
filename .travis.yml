@@ -9,12 +9,13 @@ node_js:
   - lts/*
 script:
   - npm install -g snyk@latest
-  - npm install -g lodash@latest
   - snyk -v
   - snyk code
   - snyk test --docker debian --file=Dockerfile --exclude-base-image-vulns
   - snyk iac test variable.tf
   - snyk iac test Kubernetes.yaml
+  - snyk policy
+  
 stages:
   - name: Montana Mendy's Branching Process
   - if: branch = master AND type = cron AND env(RUN_NIGHTLY) = yes
