@@ -59,3 +59,5 @@ stages:
       branch = master AND type != pull_request AND type != cron AND tag !~
       /(-rc)/ AND commit_message =~ /\[terraform\travisci/montanamendy* (release
       candidate|(major|minor|patch) release)\]/   
+      
+# enforce all regex policies
